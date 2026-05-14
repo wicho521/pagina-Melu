@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MELU | Boutique de Postres Gourmet</title>
+    <meta name="description" content="MELU - Experiencias dulces e inolvidables. Fresas con crema, snacks y repostería artesanal.">
+    
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🍓</text></svg>">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&family=Playfair+Display:ital,wght@0,700;1,700&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body class="coffee-theme">
+    <div class="scroll-progress" id="scroll-progress"></div>
+
+    <nav class="navbar" id="main-nav">
+        <div class="container navbar-simple">
+            <a href="#" class="logo">MEL<span>U</span></a>
+        </div>
+    </nav>
+
+    <header id="hero" class="hero">
+        <div class="container hero-container">
+            <div class="hero-text" data-reveal>
+                <span class="pre-title">Dulzura Artesanal</span>
+                <h1>Momentos que <span>se saborean</span></h1>
+                <p>Repostería gourmet diseñada para los paladares más exigentes. El equilibrio perfecto entre lo dulce y lo elegante.</p>
+                <div class="hero-btns">
+                    <button class="btn btn-primary" onclick="openOrderModal()">¡Hacer mi Pedido!</button>
+                    <a href="https://wa.me/525642831842" class="direct-wa">O mándame un mensaje: <b>5642831842</b></a>
+                </div>
+            </div>
+            
+            <div class="hero-visual" id="carousel">
+                <div class="carousel-container">
+                    <ul class="carousel-track">
+                        <li class="carousel-slide current-slide"><img src="assets/potre1.jpeg" alt="Especialidad Melu"></li>
+                        <li class="carousel-slide"><img src="assets/postre2.jpeg" alt="Dulce Tentación"></li>
+                        <li class="carousel-slide"><img src="assets/postre 3.jpeg" alt="Postre Artesanal"></li>
+                        <li class="carousel-slide"><img src="assets/postre5.jpeg" alt="Sabor Único"></li>
+                    </ul>
+                </div>
+                <div class="carousel-nav">
+                    <button class="bullet active"></button><button class="bullet"></button><button class="bullet"></button><button class="bullet"></button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <section id="menu" class="menu-gallery section">
+        <div class="container">
+            <div class="section-header" data-reveal>
+                <h2 class="section-title">Nuestra Selección</h2>
+                <div class="divider"><span>🍓</span></div>
+            </div>
+            
+            <div class="gallery-grid">
+                <div class="gallery-category" data-reveal>
+                    <div class="glow-effect"></div>
+                    <h3 class="cat-name">🍓 Postres con Crema</h3>
+                    <div class="cat-items">
+                        <div class="item-showcase"><h4>Fresas con Crema</h4><span class="item-price">$35 | $50 | $80</span></div>
+                        <div class="item-showcase"><h4>Uvas con Crema</h4><span class="item-price">$35 | $50 | $80</span></div>
+                        <div class="item-showcase"><h4>Duraznos con Crema</h4><span class="item-price">$35 | $50 | $80</span></div>
+                    </div>
+                </div>
+                <div class="gallery-category" data-reveal>
+                    <div class="glow-effect"></div>
+                    <h3 class="cat-name">🍰 Especiales Dulces</h3>
+                    <div class="cat-items">
+                        <div class="item-showcase"><h4>Cheesecake Oreo</h4><span class="item-price">$50.00</span></div>
+                        <div class="item-showcase"><h4>Carlota de Limón</h4><span class="item-price">$30.00</span></div>
+                        <div class="item-showcase"><h4>Flan Casero</h4><span class="item-price">$40.00</span></div>
+                    </div>
+                </div>
+                <div class="gallery-category" data-reveal>
+                    <div class="glow-effect"></div>
+                    <h3 class="cat-name">🍗 Snacks & Antojos</h3>
+                    <div class="cat-items">
+                        <div class="item-showcase"><h4>Alitas</h4><span class="item-price">$70.00</span></div>
+                        <div class="item-showcase"><h4>Alitas con Papas</h4><span class="item-price">$90.00</span></div>
+                        <div class="item-showcase"><h4>Salchipulpos</h4><span class="item-price">$40.00</span></div>
+                        <div class="item-showcase"><h4>Plátanos Macho</h4><span class="item-price">$35.00</span></div>
+                        <div class="item-showcase"><h4>Salchipapas</h4><span class="item-price">$50.00</span></div>
+                        <div class="item-showcase"><h4>Papas Fritas</h4><span class="item-price">$35.00</span></div>
+                        <div class="item-showcase"><h4>Banderillas</h4><span class="item-price">$25 - $35</span></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div id="order-modal" class="modal">
+        <div class="modal-window">
+            <button class="close-btn" onclick="closeOrderModal()" aria-label="Cerrar">&times;</button>
+            <div class="modal-content-wrapper">
+                <div class="modal-left-panel">
+                    <h2 class="modal-title">Crea tu pedido</h2>
+                    <p class="modal-subtitle">Selecciona tus favoritos y se añadirán automáticamente.</p>
+                    <div class="order-builder-clean">
+                        <div class="builder-row">
+                            <div class="input-field-clean">
+                                <label>1. Categoría</label>
+                                <select id="cat-select" onchange="updateProductOptions()">
+                                    <option value="" disabled selected>Elige categoría...</option>
+                                    <option value="frutas">🍓 Frutas con Crema</option>
+                                    <option value="especiales">🍰 Especiales Dulces</option>
+                                    <option value="snacks">🍗 Snacks & Salados</option>
+                                </select>
+                            </div>
+                            <div class="input-field-clean">
+                                <label>2. Producto</label>
+                                <select id="prod-select" disabled onchange="handleProductSelection()">
+                                    <option value="" disabled selected>Primero categoría</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <!-- Flavor Selection for Wings -->
+                        <div id="flavor-group" class="builder-subgroup" style="display: none;">
+                            <label>3. Selecciona la preparación:</label>
+                            <div class="option-add-grid">
+                                <button class="btn-option-add" onclick="addWithFlavor('BBQ')">🍗 BBQ</button>
+                                <button class="btn-option-add" onclick="addWithFlavor('Mango Habanero')">🔥 Mango Habanero</button>
+                            </div>
+                        </div>
+
+                        <!-- Size Selection for Fruits -->
+                        <div id="size-group" class="builder-subgroup" style="display: none;">
+                            <label>3. Selecciona el tamaño:</label>
+                            <div class="option-add-grid">
+                                <button class="btn-option-add" onclick="addWithSize('Chico', 35)">Chico ($35)</button>
+                                <button class="btn-option-add" onclick="addWithSize('Mediano', 50)">Mediano ($50)</button>
+                                <button class="btn-option-add" onclick="addWithSize('Grande', 80)">Grande ($80)</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="customer-info-clean">
+                        <h3>Tus datos para el envío</h3>
+                        <div class="input-row-clean">
+                            <input type="text" id="name" placeholder="Tu nombre" required>
+                            <input type="tel" id="whatsapp-input" placeholder="Tu WhatsApp (10 dígitos)" required pattern="[0-9]{10}">
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-right-panel">
+                    <div class="summary-header-clean">
+                        <h3>Tu Pedido</h3>
+                        <button class="btn-clear-cart" onclick="clearCart()">Vaciar</button>
+                    </div>
+                    <div id="cart-items" class="cart-scroll-clean"><p class="empty-text">El carrito está vacío.</p></div>
+                    <div class="summary-bottom">
+                        <div class="total-clean"><span>Total:</span><span id="cart-total-amount">$0.00</span></div>
+                        <button class="btn btn-primary btn-block btn-lg" onclick="sendOrderWhatsApp()">Confirmar WhatsApp 📱</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <div class="container footer-simple">
+            <div class="footer-logo">MEL<span>U</span></div>
+            <p>"El postre que va contigo"</p>
+            <div class="social-links-clean">
+                <a href="https://wa.me/525642831842">📱 WhatsApp: 5642831842</a>
+                <a href="#">📸 Instagram: @MELU</a>
+            </div>
+            <p class="copy">&copy; 2026 MELU Boutique. Dulzura Gourmet.</p>
+        </div>
+    </footer>
+    <script src="script.js"></script>
+</body>
+</html>
