@@ -17,6 +17,7 @@
 body { font-family: 'Outfit', sans-serif; background-color: var(--coffee-deep); color: var(--cream); line-height: 1.6; }
 .container { max-width: 1200px; margin: 0 auto; padding: 0 2rem; }
 .section { padding: 80px 0; }
+.text-center { text-align: center; }
 
 /* Scroll Progress Bar */
 .scroll-progress {
@@ -63,7 +64,20 @@ body { font-family: 'Outfit', sans-serif; background-color: var(--coffee-deep); 
 .item-showcase h4 { font-size: 1.1rem; font-weight: 500; white-space: nowrap; }
 .item-price { font-weight: 700; color: var(--strawberry); font-size: 1rem; text-align: right; white-space: nowrap; }
 
-/* Modal - RE-ENGINEERED FOR FULL RESPONSIVENESS */
+/* Bottom CTA Section */
+.order-cta-section {
+    background: radial-gradient(circle at center, hsla(20, 25%, 15%, 0.6), transparent 80%);
+    text-align: center;
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+    padding: 100px 0;
+}
+.cta-title { font-family: 'Playfair Display', serif; font-size: clamp(2.2rem, 5vw, 3.8rem); margin-bottom: 1rem; color: var(--white); }
+.cta-subtitle { font-size: 1.2rem; opacity: 0.8; margin-bottom: 3.5rem; max-width: 600px; margin-left: auto; margin-right: auto; }
+.cta-actions { display: flex; flex-direction: column; align-items: center; gap: 1rem; }
+.btn-cta-order { font-size: 1.2rem; padding: 1.5rem 4rem; box-shadow: 0 15px 35px hsla(340, 85%, 45%, 0.4); }
+.btn-cta-order:hover { transform: translateY(-5px); box-shadow: 0 20px 45px hsla(340, 85%, 45%, 0.6); }
+
+/* Modal - RE-ENGINEERED FOR A FOCUSED, INTUITIVE ONE-STREAM VERTICAL DESIGN */
 .modal {
     display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%;
     background: rgba(0,0,0,0.95); backdrop-filter: blur(15px); z-index: 2000;
@@ -73,70 +87,103 @@ body { font-family: 'Outfit', sans-serif; background-color: var(--coffee-deep); 
 .modal-window {
     background: var(--coffee-rich);
     width: 95%;
-    max-width: 1100px;
-    height: 90vh; /* Fixed height for consistent look */
-    border-radius: 40px;
+    max-width: 680px;
+    height: 85vh;
+    border-radius: 35px;
     border: 1px solid rgba(255,255,255,0.1);
     position: relative;
-    overflow: hidden; /* Prevent window from scrolling itself */
     display: flex;
     flex-direction: column;
+    box-shadow: var(--shadow-lux);
+    overflow: hidden;
 }
 
 .close-btn {
     position: absolute; top: 20px; right: 20px;
     background: var(--strawberry); color: white; border: none;
-    font-size: 1.8rem; width: 50px; height: 50px; border-radius: 50%;
+    font-size: 1.8rem; width: 45px; height: 45px; border-radius: 50%;
     display: flex; align-items: center; justify-content: center;
     cursor: pointer; z-index: 2100; box-shadow: 0 5px 15px rgba(0,0,0,0.4);
     transition: var(--transition);
 }
 .close-btn:hover { transform: rotate(90deg); background: var(--gold); color: var(--coffee-deep); }
 
-.modal-content-wrapper {
-    display: flex;
-    height: 100%; /* Fill modal window */
-    overflow: hidden;
-}
-
-.modal-left-panel {
-    flex: 1.3;
-    padding: 3.5rem;
-    overflow-y: auto; /* Scroll independently */
-    border-right: 1px solid rgba(255,255,255,0.05);
-}
-
-.modal-right-panel {
+.modal-scroll-wrapper {
     flex: 1;
-    padding: 3.5rem;
-    background: rgba(0,0,0,0.25);
-    overflow-y: auto; /* Scroll independently */
+    overflow-y: auto;
+    padding: 3.5rem 2.5rem;
+}
+
+.modal-content-clean {
     display: flex;
     flex-direction: column;
+    gap: 2.5rem;
 }
 
-.modal-title { font-family: 'Playfair Display', serif; font-size: 3rem; margin-bottom: 0.5rem; }
-.modal-subtitle { color: var(--gold); margin-bottom: 2.5rem; opacity: 0.8; }
+.modal-title { font-family: 'Playfair Display', serif; font-size: 2.5rem; margin-bottom: 0.5rem; }
+.modal-subtitle { color: var(--gold); font-size: 1.1rem; opacity: 0.8; }
 
-.builder-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; margin-bottom: 2rem; }
-select, .input-row-clean input { width: 100%; padding: 1.2rem; border-radius: 15px; border: 2px solid rgba(255,255,255,0.05); background: var(--coffee-deep); color: white; font-family: inherit; margin-bottom: 1rem; font-size: 1rem; }
+/* Builder */
+.builder-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; }
+.input-field-clean { display: flex; flex-direction: column; gap: 0.5rem; }
+.input-field-clean label { font-size: 0.95rem; font-weight: 600; color: var(--cream); opacity: 0.7; }
+select, .input-row-clean input { width: 100%; padding: 1.2rem; border-radius: 15px; border: 2px solid rgba(255,255,255,0.05); background: var(--coffee-deep); color: white; font-family: inherit; font-size: 1rem; transition: var(--transition); }
+select:focus, .input-row-clean input:focus { border-color: var(--strawberry); outline: none; }
 
-.builder-subgroup { margin-top: 1.5rem; }
-.option-add-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 12px; margin-top: 1rem; }
+.builder-subgroup { margin-top: 1rem; animation: slideUp 0.4s ease-out forwards; }
+@keyframes slideUp { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+
+.builder-subgroup label { font-size: 0.95rem; font-weight: 600; color: var(--gold); display: block; margin-bottom: 0.8rem; }
+.option-add-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(130px, 1fr)); gap: 12px; }
 .btn-option-add { background: var(--mocha); color: var(--white); border: 1px solid rgba(255,255,255,0.1); padding: 1.2rem; border-radius: 18px; font-weight: 800; cursor: pointer; transition: 0.3s; font-size: 1rem; }
 .btn-option-add:hover { background: var(--gold); color: var(--coffee-deep); transform: translateY(-3px); }
 
-.customer-info-clean { margin-top: 3rem; }
-.customer-info-clean h3 { margin-bottom: 1.5rem; font-size: 1.4rem; color: var(--strawberry); }
+/* Cart Section Inside Modal */
+.cart-section-clean {
+    background: rgba(0, 0, 0, 0.25);
+    padding: 2rem;
+    border-radius: 25px;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+}
+.summary-header-clean { display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.5rem; }
+.summary-header-clean h3 { font-size: 1.3rem; color: var(--gold); }
+.btn-clear-cart { background: transparent; border: 1px solid var(--strawberry); color: var(--strawberry); padding: 0.4rem 1.2rem; border-radius: 50px; cursor: pointer; font-weight: 700; font-size: 0.85rem; transition: var(--transition); }
+.btn-clear-cart:hover { background: var(--strawberry); color: white; }
+.cart-scroll-clean { margin: 1.5rem 0; max-height: 250px; overflow-y: auto; padding-right: 5px; }
+.cart-item { display: flex; justify-content: space-between; align-items: center; background: rgba(255,255,255,0.04); padding: 1.2rem; border-radius: 20px; margin-bottom: 0.8rem; border: 1px solid rgba(255,255,255,0.05); animation: popIn 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275); }
+@keyframes popIn { from { transform: scale(0.8); opacity: 0; } to { transform: scale(1); opacity: 1; } }
+
+.cart-item-info strong { display: block; font-size: 1.1rem; color: var(--gold); }
+.cart-item-info span { font-size: 0.95rem; color: var(--strawberry); font-weight: 700; }
+.remove-btn { background: rgba(255,0,0,0.1); color: #ff4d4d; border: none; width: 32px; height: 32px; border-radius: 10px; cursor: pointer; font-weight: 800; transition: 0.3s; }
+.remove-btn:hover { background: #ff4d4d; color: white; }
+
+.total-clean { display: flex; justify-content: space-between; font-size: 2.2rem; font-weight: 800; color: var(--strawberry); border-top: 1px solid rgba(255,255,255,0.08); padding-top: 1.5rem; margin-top: 1.5rem; }
+
+/* Customer Info inside Modal */
+.customer-info-clean {
+    background: rgba(0, 0, 0, 0.15);
+    padding: 2rem;
+    border-radius: 25px;
+    border: 1px solid rgba(255, 255, 255, 0.03);
+}
+.customer-info-clean h3 { margin-bottom: 1.5rem; font-size: 1.3rem; color: var(--gold); }
 .input-row-clean { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; }
 
-/* Cart items in modal */
-.summary-header-clean { display: flex; justify-content: space-between; align-items: center; margin-bottom: 2rem; }
-.btn-clear-cart { background: transparent; border: 1px solid var(--gold); color: var(--gold); padding: 0.5rem 1.2rem; border-radius: 50px; cursor: pointer; font-weight: 700; }
-.cart-scroll-clean { flex: 1; min-height: 200px; }
-.cart-item { display: flex; justify-content: space-between; align-items: center; background: rgba(255,255,255,0.04); padding: 1.2rem; border-radius: 20px; margin-bottom: 1rem; border: 1px solid rgba(255,255,255,0.05); }
-.summary-bottom { border-top: 1px solid rgba(255,255,255,0.1); padding-top: 2rem; margin-top: auto; }
-.total-clean { display: flex; justify-content: space-between; font-size: 2.5rem; font-weight: 800; color: var(--strawberry); margin-bottom: 2rem; }
+/* Submit button */
+.submit-section-clean { margin-top: 1rem; }
+.submit-section-clean .btn-block { width: 100%; font-size: 1.2rem; padding: 1.4rem; border-radius: var(--radius-pill); }
+
+/* Toast Feedback */
+.cart-toast {
+    position: fixed; bottom: 30px; left: 50%; transform: translateX(-50%);
+    background: var(--strawberry); color: white; padding: 1rem 2rem; border-radius: 50px;
+    z-index: 3000; font-weight: 800; box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+    animation: toast-in 0.3s ease-out forwards;
+}
+.cart-toast.out { animation: toast-out 0.3s ease-in forwards; }
+@keyframes toast-in { from { transform: translate(-50%, 20px); opacity: 0; } to { transform: translate(-50%, 0); opacity: 1; } }
+@keyframes toast-out { to { transform: translate(-50%, 20px); opacity: 0; } }
 
 /* MOBILE RESPONSIVENESS OVERHAUL */
 @media (max-width: 992px) {
@@ -145,26 +192,35 @@ select, .input-row-clean input { width: 100%; padding: 1.2rem; border-radius: 15
     .hero-visual { height: 400px; order: -1; }
     .section { padding: 60px 0; }
     .section-title { font-size: 2.5rem; }
-
-    /* Modal Mobile */
-    .modal { padding: 0; }
-    .modal-window { width: 100%; height: 100%; border-radius: 0; border: none; }
-    .modal-content-wrapper { flex-direction: column; overflow-y: auto; }
-    .modal-left-panel, .modal-right-panel { flex: none; width: 100%; padding: 2.5rem 1.5rem; overflow-y: visible; border: none; }
-    .modal-right-panel { background: rgba(0,0,0,0.4); padding-bottom: 5rem; }
     
-    .builder-row, .input-row-clean { grid-template-columns: 1fr; gap: 0; }
-    .modal-title { font-size: 2.2rem; }
-    .total-clean { font-size: 2rem; }
-    .close-btn { top: 15px; right: 15px; width: 45px; height: 45px; }
-
     .logo { font-size: 2.5rem; }
     .navbar { top: 1.5rem; }
 }
 
+@media (max-width: 768px) {
+    /* Modal full-screen on mobile */
+    .modal { padding: 0; }
+    .modal-window {
+        width: 100%;
+        height: 100%;
+        border-radius: 0;
+        border: none;
+    }
+    .modal-scroll-wrapper {
+        padding: 4.5rem 1.5rem 2rem 1.5rem; /* Space at top for close button */
+    }
+    .builder-row, .input-row-clean {
+        grid-template-columns: 1fr;
+        gap: 0.5rem;
+    }
+    .modal-title { font-size: 2.2rem; }
+    .total-clean { font-size: 1.8rem; }
+    .close-btn { top: 15px; right: 15px; width: 45px; height: 45px; }
+}
+
 @media (max-width: 480px) {
     .option-add-grid { grid-template-columns: 1fr; }
-    .modal-left-panel, .modal-right-panel { padding: 2rem 1.2rem; }
+    .modal-scroll-wrapper { padding: 5rem 1rem 1.5rem 1rem; }
 }
 
 /* Footer */

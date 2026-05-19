@@ -30,7 +30,7 @@
                 <h1>Momentos que <span>se saborean</span></h1>
                 <p>Repostería gourmet diseñada para los paladares más exigentes. El equilibrio perfecto entre lo dulce y lo elegante.</p>
                 <div class="hero-btns">
-                    <button class="btn btn-primary" onclick="openOrderModal()">¡Hacer mi Pedido!</button>
+                    <a href="#menu" class="btn btn-primary">Ver Menú</a>
                     <a href="https://wa.me/525642831842" class="direct-wa">O mándame un mensaje: <b>5642831842</b></a>
                 </div>
             </div>
@@ -94,13 +94,30 @@
         </div>
     </section>
 
+    <!-- Bottom Call-To-Action (CTA) Section -->
+    <section id="order-cta-section" class="order-cta-section section" data-reveal>
+        <div class="container text-center">
+            <h2 class="cta-title">¿Listo para saborear la dulzura?</h2>
+            <p class="cta-subtitle">Elige tus antojos preferidos y arma tu pedido personalizado al instante.</p>
+            <div class="cta-actions">
+                <button class="btn btn-primary btn-cta-order" onclick="openOrderModal()">✨ ¡Hacer mi Pedido ahora! ✨</button>
+                <a href="https://wa.me/525642831842" class="direct-wa">O contáctanos vía WhatsApp: <b>5642831842</b></a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Refactored modal with highly intuitive sequential vertical ordering flow -->
     <div id="order-modal" class="modal">
         <div class="modal-window">
             <button class="close-btn" onclick="closeOrderModal()" aria-label="Cerrar">&times;</button>
-            <div class="modal-content-wrapper">
-                <div class="modal-left-panel">
-                    <h2 class="modal-title">Crea tu pedido</h2>
-                    <p class="modal-subtitle">Selecciona tus favoritos y se añadirán automáticamente.</p>
+            <div class="modal-scroll-wrapper">
+                <div class="modal-content-clean">
+                    <div class="modal-header-clean">
+                        <h2 class="modal-title">Crea tu pedido</h2>
+                        <p class="modal-subtitle">Arma tu combinación ideal en segundos.</p>
+                    </div>
+                    
+                    <!-- 1. Selection Fields -->
                     <div class="order-builder-clean">
                         <div class="builder-row">
                             <div class="input-field-clean">
@@ -139,6 +156,23 @@
                             </div>
                         </div>
                     </div>
+
+                    <!-- 2. Tu Pedido / Cart Summary -->
+                    <div class="cart-section-clean">
+                        <div class="summary-header-clean">
+                            <h3>Tu Pedido</h3>
+                            <button class="btn-clear-cart" onclick="clearCart()">Vaciar</button>
+                        </div>
+                        <div id="cart-items" class="cart-scroll-clean">
+                            <p class="empty-text">El carrito está vacío.</p>
+                        </div>
+                        <div class="total-clean">
+                            <span>Total:</span>
+                            <span id="cart-total-amount">$0.00</span>
+                        </div>
+                    </div>
+
+                    <!-- 3. Customer Info -->
                     <div class="customer-info-clean">
                         <h3>Tus datos para el envío</h3>
                         <div class="input-row-clean">
@@ -146,15 +180,9 @@
                             <input type="tel" id="whatsapp-input" placeholder="Tu WhatsApp (10 dígitos)" required pattern="[0-9]{10}">
                         </div>
                     </div>
-                </div>
-                <div class="modal-right-panel">
-                    <div class="summary-header-clean">
-                        <h3>Tu Pedido</h3>
-                        <button class="btn-clear-cart" onclick="clearCart()">Vaciar</button>
-                    </div>
-                    <div id="cart-items" class="cart-scroll-clean"><p class="empty-text">El carrito está vacío.</p></div>
-                    <div class="summary-bottom">
-                        <div class="total-clean"><span>Total:</span><span id="cart-total-amount">$0.00</span></div>
+
+                    <!-- 4. Submit Action -->
+                    <div class="submit-section-clean">
                         <button class="btn btn-primary btn-block btn-lg" onclick="sendOrderWhatsApp()">Confirmar WhatsApp 📱</button>
                     </div>
                 </div>
