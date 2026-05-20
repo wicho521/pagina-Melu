@@ -193,7 +193,7 @@ function sendOrderWhatsApp() {
         itemsText += `- ${item.name}: $${item.price.toFixed(2)}%0A`;
         total += item.price;
     });
-    const message = `*NUEVO PEDIDO MELU 🍓*%0A%0A*Nombre:* ${name}%0A*WhatsApp:* ${phone}%0A%0A*PRODUCTOS:*%0A${itemsText}%0A*TOTAL: $${total.toFixed(2)}*`;
+    const message = `*NUEVO PEDIDO ALUME 👾*%0A%0A*Nombre:* ${name}%0A*WhatsApp:* ${phone}%0A%0A*PRODUCTOS:*%0A${itemsText}%0A*TOTAL: $${total.toFixed(2)}*`;
     window.open(`https://wa.me/${WA_NUMBER}?text=${message}`, '_blank');
 }
 
