@@ -16,6 +16,7 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+    <canvas id="jellyfish-canvas"></canvas>
     <div class="scroll-progress" id="scroll-progress"></div>
 
     <nav class="navbar" id="main-nav">
@@ -46,40 +47,6 @@
         </div>
     </header>
 
-    <!-- Seccion Carrusel de Especialidades (Product Showcase) with Glowing SVG Drip Dividers -->
-    <section class="specialties-showcase section" style="background: var(--bg-darker); z-index: 5;">
-        <div class="drip-divider drip-divider-top">
-            <svg viewBox="0 0 1440 60" preserveAspectRatio="none"><path class="neon-drip-path" d="M0,0 C240,40 480,0 720,30 C960,60 1200,10 1440,20 L1440,60 L0,60 Z"></path></svg>
-        </div>
-        
-        <div class="container">
-            <div class="section-header text-center" data-reveal>
-                <span class="section-subtitle">Preparados al Instante</span>
-                <h2 class="section-title">Nuestras Especialidades</h2>
-                <div class="divider"><span>🍓</span></div>
-            </div>
-            
-            <div class="carousel-wrapper" style="max-width: 800px; margin: 0 auto;" data-reveal>
-                <div class="hero-visual" id="carousel">
-                    <div class="carousel-container">
-                        <ul class="carousel-track">
-                            <li class="carousel-slide current-slide"><img src="assets/potre1.jpeg" alt="Fresas Especiales ALUME"></li>
-                            <li class="carousel-slide"><img src="assets/postre2.jpeg" alt="Dulce Tentación"></li>
-                            <li class="carousel-slide"><img src="assets/postre 3.jpeg" alt="Postre Artesanal"></li>
-                            <li class="carousel-slide"><img src="assets/postre5.jpeg" alt="Snack Exclusivo"></li>
-                        </ul>
-                    </div>
-                    <div class="carousel-nav">
-                        <button class="bullet active"></button><button class="bullet"></button><button class="bullet"></button><button class="bullet"></button>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div class="drip-divider drip-divider-bottom">
-            <svg viewBox="0 0 1440 60" preserveAspectRatio="none"><path class="neon-drip-path" d="M0,40 C300,10 600,50 900,20 C1200,-10 1350,30 1440,10 L1440,0 L0,0 Z"></path></svg>
-        </div>
-    </section>
 
     <!-- Glassmorphic Menu Section -->
     <section id="menu" class="menu-gallery section">
@@ -231,7 +198,6 @@
             <p>"Postres y snacks que van contigo"</p>
             <div class="social-links-clean">
                 <a href="https://wa.me/525642831842">📱 WhatsApp: 5642831842</a>
-                <a href="#">📸 Instagram: @ALUME.POSTRES</a>
             </div>
             <p class="copy">&copy; 2026 ALUME Boutique. Dulzura Gourmet.</p>
         </div>
